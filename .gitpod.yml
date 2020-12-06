@@ -2,6 +2,4 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: echo init
-  - command: echo command
-    name: Pending actions!!!
+  - init: chmod +x ./gitpod-init.sh && ./gitpod-init.sh
