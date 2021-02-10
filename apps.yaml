@@ -8,7 +8,7 @@ metadata:
 spec:
   project: production
   source:
-    repoURL: CHANGE_ME_REPO
+    repoURL: https://github.com/devopsparadox/gitpod-production.git
     targetRevision: HEAD
     path: helm
   destination:
