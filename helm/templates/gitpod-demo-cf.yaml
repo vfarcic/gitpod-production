@@ -1,0 +1,29 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: devops-toolkit
+  namespace: argocd
+spec:
+  destination:
+    namespace: production
+    server: https://kubernetes.default.svc
+  project: production
+  source:
+    helm:
+      values: |
+        image:
+          repository: vfarcic/devops-toolkit
+          tag: cf38ea3
+        ingress:
+          host: devopstoolkitseries.com
+      version: v3
+    path: helm
+    repoURL: https://github.com/vfarcic/gitpod-demo-cf.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
